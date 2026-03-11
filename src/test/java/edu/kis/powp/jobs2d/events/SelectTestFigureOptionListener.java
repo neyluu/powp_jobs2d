@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 import edu.kis.powp.jobs2d.drivers.DriverManager;
+import edu.kis.powp.jobs2d.drivers.adapter.AbstractDriverAdapter;
+import edu.kis.powp.jobs2d.magicpresets.FiguresJane;
 import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
 
 public class SelectTestFigureOptionListener implements ActionListener {
@@ -13,7 +15,8 @@ public class SelectTestFigureOptionListener implements ActionListener {
 	private int figure = 0;
 	private final List<Runnable> figures = List.of(
 		() -> FiguresJoe.figureScript1(driverManager.getCurrentDriver()),
-		() -> FiguresJoe.figureScript2(driverManager.getCurrentDriver())
+		() -> FiguresJoe.figureScript2(driverManager.getCurrentDriver()),
+		() -> FiguresJane.figureScript(new AbstractDriverAdapter())
 	);
 
 	public SelectTestFigureOptionListener(DriverManager driverManager) {
